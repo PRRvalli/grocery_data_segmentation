@@ -25,8 +25,11 @@ Inorder to work on all images sizes I set the **batch_size = 1**. Hence the trai
 **Total Number of Classes** = 11 {10 Brands + 1 background class}
 
 # Next steps :
+
 [ ] Segmentation images for the test images.
+
 [ ] Bounding Box 
+
 [ ] mAP calculation with (iou >= 0.5) 
 
 
