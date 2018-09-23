@@ -24,13 +24,12 @@ I'm using a pretrained weights og VGG 16 in my **FCN-8** architecture.
 Inorder to work on all images sizes I set the **batch_size = 1**. Hence the train on only 1 image returned by ``` Data_Reader()``` function. 
 **Total Number of Classes** = 11 {10 Brands + 1 background class}
 
-# Next steps :
+**Approaches**
 
-[ ] Segmentation images for the test images.
+FCN network
 
-[ ] Bounding Box 
+Selective search algorithm 
 
-[ ] mAP calculation with (iou >= 0.5) 
 
 
 
