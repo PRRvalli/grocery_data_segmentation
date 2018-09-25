@@ -80,27 +80,32 @@ total = 0
 for i in range(1,11):
   class_num = i
   x = pred_list[str(class_num)]
-  # sorting them accoring to the confidence value
   x.sort(key=first_element, reverse = True)
   tp_cumsum = np.cumsum(np.array(x)[:,1])
   pos = np.cumsum(np.ones((len(x),),dtype='int'))
   
+
   precision = tp_cumsum/pos
   recall = tp_cumsum/(Tp[class_num]+Fn[class_num])
   
-  max_recall = np.max(recall)
-  # while interpolating for some class the precision may not exist beyond a particular value so I'm storing the max_recall
-  # precision = 0 for recall > max_recall
-  sum = 0
-  
+  '''plt.plot(recall,precision)
+  plt.show()'''
+  # max_recall = np.max(recall)
+  Ap = 0
   for i in np.linspace(0,1,11):
-    if(i <= max_recall):
-      sum += np.interp(i, recall, precision)
-  AP =sum/11 		
-  total += AP
+    if np.sum(recall>=i) == 0:
+      p = 0
+    else:
+      p = np.max(precision[recall>=i])
+    Ap += p/11
+  # print(Ap)
+  total += Ap/10
   
-# mean average precision   
-mAP = total/10
+# mean average precision
+print(total)
+  
+   
+
   
 
 
